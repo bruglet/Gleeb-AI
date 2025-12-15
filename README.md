@@ -1,13 +1,15 @@
-# Gemini Discord Bot
+# Gleeb.AI
 
-A Discord bot leveraging Google Gemini for advanced conversation, content understanding, image/video/audio recognition, and more.
+A Discord bot leveraging Google Gemma for advanced conversation, content understanding, image/video/audio recognition, and more. Powered by spoilage.
+
+Forked from [Gemini-Discord-Bot](https://github.com/hihumanzone/Gemini-Discord-Bot) by [hihumanzone](https://github.com/hihumanzone).
 
 ---
 
 ## Features
 
-- **Conversational AI** powered by Google Gemini (Gemini-2.5-Flash)
-- **Image/video/audio and file recognition** (supports images, videos, audios, PDFs, docx, pptx, and code/text files)
+- **Conversational AI** powered by Google Gemma (Gemma 3-27B)
+- **Image recognition** (supports images and code/text files)
 - **Custom personalities per user, channel, or server**
 - **Server and channel-wide chat history** options
 - **Admin controls** for blacklisting/whitelisting users
@@ -22,35 +24,28 @@ A Discord bot leveraging Google Gemini for advanced conversation, content unders
 
 ### Prerequisites
 
-- Node.js v20+ recommended
+- Podman and Quadlet via Systemd (recommended)
+- Alternatively, Docker and Docker Compose
 - Discord bot token ([create here](https://discord.com/developers/applications))
 - Google Gemini API key ([get one here](https://aistudio.google.com/app/apikey))
 
 ### Setup
 
-1. **Clone the repo:**
-    ```bash
-    git clone https://github.com/hihumanzone/Gemini-Discord-Bot.git
-    cd Gemini-Discord-Bot
-    ```
+1. **Set up your container runtime:**
+    - Download and move `gleebai.container` to ~/.config/containers/systemd/ (Podman & Quadlet)
+    - Download `docker-compose.yml` (Docker Compose)
+    - You could also manually run Docker and Podman commands. (not recommended)
 
-2. **Install dependencies:**
-    ```bash
-    npm install
-    ```
+2. **Configure environment variables:**
+    - Fill in your Discord and Google API tokens in `gleebai.container` or `docker-compose.yml`.
 
-3. **Configure environment variables:**
-    - Copy `example.env` to `.env`
-    - Fill in your Discord and Google API tokens:
-      ```
-      DISCORD_BOT_TOKEN=your_discord_bot_token
-      GOOGLE_API_KEY=your_google_api_key
-      ```
-
-4. **Start the bot:**
-    ```bash
-    npm start
-    ```
+3. **Start the bot:**
+- Podman and Quadlet:
+  ```
+  systemctl --user daemon-reload
+  systemctl --user start gleebai
+  ```
+- In same directory as `docker-compose.yml`, run `podman compose up -d` (Docker Compose)
 
 ---
 
@@ -59,7 +54,7 @@ A Discord bot leveraging Google Gemini for advanced conversation, content unders
 - **Invite the bot to your Discord server.**
 - Use `/settings` to configure personal or channel preferences.
 - Use `/server_settings` for server-wide admin controls.
-- Upload supported files or image/video/audio files and ask the bot about them.
+- Upload supported files or image files and ask the bot about them.
 - Use slash commands:
     - `/respond_to_all enabled:true|false` – Bot responds to every message in a channel
     - `/clear_memory` – Clear your personal conversation history
@@ -72,8 +67,8 @@ A Discord bot leveraging Google Gemini for advanced conversation, content unders
 
 ## Customization
 
-- Modify `config.js` to change default personalities, activities, colors, and feature toggles.
-- Persistent data (chat history, settings, blacklists, etc.) is stored in the `config` directory.
+- Fork and modify `config.js` to change default personalities, activities, colors, and feature toggles. Make sure to pull new container once built by GitHub Actions.
+- Persistent data (chat history, settings, blacklists, etc.) is stored in the `gleebai-config` volume.
 
 ---
 
@@ -87,7 +82,7 @@ A Discord bot leveraging Google Gemini for advanced conversation, content unders
 ## Notes
 
 - The bot stores chat history and settings locally. For production use, consider using persistent cloud storage.
-- **Do not commit your `.env` with secrets.**
+- **Do not commit your `.env` or Quadlet file with secrets.**
 
 ---
 
