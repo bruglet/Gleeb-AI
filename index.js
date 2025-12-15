@@ -521,7 +521,7 @@ async function handleTextMessage(message) {
 		},
 		{
 			role: "model",
-			parts: [{ text: "Understood." }] // Acknowledge so the conversation flow stays consistent
+			parts: [{ text: "Goma! 🫡" }] // Acknowledge so the conversation flow stays consistent
 		}
 	];
 
