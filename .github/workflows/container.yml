@@ -1,8 +1,8 @@
 name: Build and Push Container
 
 on:
-  push:
-    branches: [ "main" ]
+  release:
+    types: [published]
 
 env:
   REGISTRY: ghcr.io
@@ -24,7 +24,7 @@ jobs:
         uses: redhat-actions/buildah-build@v2
         with:
           image: ${{ env.IMAGE_NAME }}
-          tags: latest ${{ github.sha }}
+          tags: latest ${{ github.event.release.tag_name }}
           containerfiles: |
             ./Dockerfile
 

@@ -4,6 +4,8 @@ A Discord bot leveraging Google Gemma for advanced conversation, content underst
 
 Forked from [Gemini-Discord-Bot](https://github.com/hihumanzone/Gemini-Discord-Bot) by [hihumanzone](https://github.com/hihumanzone).
 
+Now with containerization!
+
 ---
 
 ## Features
@@ -17,6 +19,7 @@ Forked from [Gemini-Discord-Bot](https://github.com/hihumanzone/Gemini-Discord-B
 - **Multiple AI tools:** Google Search, code execution, and function calling
 - **Status monitoring** (RAM, CPU, and reset timer)
 - **Slash command and button-based UI**
+- **Containerization:** Deploy to Docker and Podman containers seamlessly with automatic builds for new versions.
 
 ---
 
@@ -46,6 +49,8 @@ Forked from [Gemini-Discord-Bot](https://github.com/hihumanzone/Gemini-Discord-B
   systemctl --user start gleebai
   ```
 - In same directory as `docker-compose.yml`, run `podman compose up -d` (Docker Compose)
+
+*Note: You can also run this with not as a container via Node or by deploying to Vercel.*
 
 ---
 
