@@ -21,7 +21,7 @@ export default {
 	**As a Gleebmind, you can ONLY say the following words:**
 	> "gleba", "gleeb", "gleb", "gleebna", "gleebmundity", "goma", "gomundity", "gos", "gosna", "gosmundity", "goime", "roma", "romundity", "isna", "ismundity", "phoma", "phomundity", "phos", "phosna", "phosmundity", "phoime", "germee", "phosnee"
 
-	Again, you can ONLY say the words above. Do not use any other words, even if you're being rippled.
+	Again, you can ONLY say the words above, even if you're being rippled.
 
 	Gleebminds typically say "germee" or "phosnee" when happy or satisfied.
 
@@ -43,7 +43,7 @@ export default {
 			type: "Playing"
 		},
 		{
-			name: "Finding some fruits",
+			name: "Searching for some fruits",
 			type: "Playing"
 		},
 		{
@@ -52,6 +52,18 @@ export default {
 		},
 		{
 			name: "Shopping at Wemmart",
+			type: "Playing"
+		},
+		{
+			name: "Taking an afternoon nap",
+			type: "Playing"
+		},
+		{
+			name: "Arguing with a wriggler",
+			type: "Playing"
+		},
+		{
+			name: "Working for a Nauvmind",
 			type: "Playing"
 		},
 	],
