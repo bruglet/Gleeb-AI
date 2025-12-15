@@ -68,6 +68,10 @@ export default {
 			name: "Working for a Nauvmind",
 			type: "Playing"
 		},
+		{
+			name: "Stealing your yumako berries",
+			type: "Playing"
+		},
 	],
 	defaultServerSettings: {
 		serverChatHistory: false,
