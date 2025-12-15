@@ -55,7 +55,7 @@ export default {
 			type: "Playing"
 		},
 		{
-			name: "Taking an afternoon nap",
+			name: "Taking a nap",
 			type: "Playing"
 		},
 		{
