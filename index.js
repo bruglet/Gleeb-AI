@@ -1928,7 +1928,7 @@ async function handleModelResponse(initialBotMessage, chat, parts, originalMessa
 		clearInterval(typingInterval);
 		try {
 			botMessage = await originalMessage.reply({
-				content: 'Let me think..',
+				content: 'Pondering...',
 				components: [stopGeneratingButton]
 			});
 		} catch (error) { }
