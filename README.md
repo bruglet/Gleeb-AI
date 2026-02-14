@@ -1,6 +1,6 @@
 # Gleeb.AI
 
-A Discord bot leveraging Google Gemma for advanced conversation, content understanding, image/video/audio recognition, and more. Powered by spoilage.
+A Discord bot leveraging Google Gemini for advanced conversation, content understanding, image/video/audio recognition, and more. Powered by spoilage.
 
 Forked from [Gemini-Discord-Bot](https://github.com/hihumanzone/Gemini-Discord-Bot) by [hihumanzone](https://github.com/hihumanzone).
 
@@ -10,7 +10,7 @@ Now with containerization!
 
 ## Features
 
-- **Conversational AI** powered by Google Gemma (Gemma 3-27B)
+- **Conversational AI** powered by Google Gemini (Gemini 2.5 Flash Lite)
 - **Image recognition** (supports images and code/text files)
 - **Custom personalities per user, channel, or server**
 - **Server and channel-wide chat history** options

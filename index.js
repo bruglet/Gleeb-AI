@@ -57,7 +57,7 @@ initialize().catch(console.error);
 
 // <=====[Configuration]=====>
 
-const MODEL = "gemma-3-27b-it";
+const MODEL = "gemini-2.5-flash-lite";
 
 /*
 `BLOCK_NONE`  -  Always show regardless of probability of unsafe content
@@ -88,9 +88,9 @@ const generationConfig = {
 	temperature: 1.0,
 	topP: 0.95,
 	// maxOutputTokens: 1000,
-	// thinkingConfig: {
-	// 	thinkingBudget: -1
-	// }
+	thinkingConfig: {
+		thinkingBudget: -1
+	}
 };
 
 const defaultResponseFormat = config.defaultResponseFormat;
@@ -503,45 +503,27 @@ async function handleTextMessage(message) {
 	const historyId = isChannelChatHistoryEnabled ? (isServerChatHistoryEnabled ? guildId : channelId) : userId;
 
 	// Always enable all three tools: Google Search, URL Context, and Code Execution
-	// const tools = [
-	// 	{ googleSearch: {} },
-	// 	{ urlContext: {} },
-	// 	{ codeExecution: {} }
-	// ];
-
-	// 1. Get the existing history
-	let history = getHistory(historyId);
-
-	// 2. Manually inject the system instruction as a "fake" user message at the start
-	// This tricks Gemma into following your personality without using the unsupported "systemInstruction" field.
-	const systemPromptInjection = [
-		{
-			role: "user",
-			parts: [{ text: `Instructions: ${finalInstructions || defaultPersonality}` }]
-		},
-		{
-			role: "model",
-			parts: [{ text: "Goma! 🫡" }] // Acknowledge so the conversation flow stays consistent
-		}
+	const tools = [
+		{ googleSearch: {} },
+		{ urlContext: {} },
+		{ codeExecution: {} }
 	];
-
-	// 3. Prepend the system prompt injection to the history
-	const modifiedHistory = [...systemPromptInjection, ...history];
 
 	// Create chat with new Google GenAI API format
 	const chat = genAI.chats.create({
 		model: MODEL,
 		config: {
-			// systemInstruction: {
-			//	role: "system",
-			//	parts: [{ text: finalInstructions || defaultPersonality }]
-			// },
+			systemInstruction: {
+				role: "system",
+				parts: [{ text: finalInstructions || defaultPersonality }]
+			},
 			...generationConfig,
 			safetySettings,
-			// tools
+			tools
 		},
-		history: modifiedHistory // Pass our modified history with the injected instructions
+		history: getHistory(historyId)
 	});
+
 	await handleModelResponse(botMessage, chat, parts, message, typingInterval, historyId);
 }
 
