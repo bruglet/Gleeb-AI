@@ -425,7 +425,7 @@ async function handleTextMessage(message) {
 		const embed = new EmbedBuilder()
 			.setColor(0x00FFFF)
 			.setTitle('Empty Message')
-			.setDescription("It looks like you didn't say anything. What would you like to talk about?");
+			.setDescription("Gos...? (You didn't send anything)");
 		const botMessage = await message.reply({
 			embeds: [embed]
 		});
@@ -445,7 +445,7 @@ async function handleTextMessage(message) {
 		if (SEND_RETRY_ERRORS_TO_DISCORD) {
 			clearInterval(typingInterval);
 			const updateEmbedDescription = (textAttachmentStatus, imageAttachmentStatus, finalText) => {
-				return `Let me think...\n\n- ${textAttachmentStatus}: Text Attachment Check\n- ${imageAttachmentStatus}: Media Attachment Check\n${finalText || ''}`;
+				return `Pondering....\n\n- ${textAttachmentStatus}: Text Attachment Check\n- ${imageAttachmentStatus}: Media Attachment Check\n${finalText || ''}`;
 			};
 
 			const embed = new EmbedBuilder()
