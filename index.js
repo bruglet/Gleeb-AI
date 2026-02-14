@@ -85,11 +85,11 @@ const safetySettings = [{
 ];
 
 const generationConfig = {
-	temperature: 1.0,
-	topP: 0.95,
+	temperature: 2.0,
+	topP: 0.60,
 	// maxOutputTokens: 1000,
 	thinkingConfig: {
-		thinkingBudget: -1
+		thinkingBudget: 2048
 	}
 };
 
@@ -506,7 +506,7 @@ async function handleTextMessage(message) {
 	const tools = [
 		{ googleSearch: {} },
 		{ urlContext: {} },
-		{ codeExecution: {} }
+		//{ codeExecution: {} }
 	];
 
 	// Create chat with new Google GenAI API format
