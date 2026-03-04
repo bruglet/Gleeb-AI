@@ -57,7 +57,7 @@ initialize().catch(console.error);
 
 // <=====[Configuration]=====>
 
-const MODEL = "gemini-2.5-flash-lite";
+const MODEL = "gemini-3.1-flash-lite-preview";
 
 /*
 `BLOCK_NONE`  -  Always show regardless of probability of unsafe content
@@ -89,7 +89,7 @@ const generationConfig = {
 	topP: 0.60,
 	// maxOutputTokens: 1000,
 	thinkingConfig: {
-		thinkingBudget: 2048
+		thinkingLevel: "low"
 	}
 };
 

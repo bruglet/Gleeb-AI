@@ -10,7 +10,7 @@ Now with containerization!
 
 ## Features
 
-- **Conversational AI** powered by Google Gemini (Gemini 2.5 Flash Lite)
+- **Conversational AI** powered by Google Gemini (Gemini 3.1 Flash Lite [Preview])
 - **Image recognition** (supports images and code/text files)
 - **Custom personalities per user, channel, or server**
 - **Server and channel-wide chat history** options
