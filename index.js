@@ -89,7 +89,7 @@ const generationConfig = {
 	topP: 0.60,
 	// maxOutputTokens: 1000,
 	thinkingConfig: {
-		thinkingLevel: "low"
+		thinkingLevel: "high"
 	}
 };
 
