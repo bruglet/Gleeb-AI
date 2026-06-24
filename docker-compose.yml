@@ -4,7 +4,7 @@ services:
     container_name: gleebai
     restart: always
     volumes:
-      - gleebai-config:/app/config
+      - gleebai-data:/app/data
       # Optional: Use if you want to inspect downloaded files before they are deleted
       - gleebai-temp:/app/temp
     # Change these to your actual tokens. Don't publish these publically!
@@ -13,5 +13,5 @@ services:
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
 
 volumes:
-  gleebai-config:
+  gleebai-data:
   gleebai-temp:

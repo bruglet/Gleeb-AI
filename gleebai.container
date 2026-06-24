@@ -4,7 +4,7 @@ ContainerName=gleebai
 Image=ghcr.io/bruglet/gleeb-ai:latest
 Environment=DISCORD_BOT_TOKEN=${DISCORD_BOT_TOKEN}
 Environment=GOOGLE_API_KEY=${GOOGLE_API_KEY}
-Volume=gleebai-config:/app/config
+Volume=gleebai-data:/app/data
 Volume=gleebai-temp:/app/temp
 
 [Service]

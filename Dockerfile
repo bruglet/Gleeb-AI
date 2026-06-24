@@ -3,5 +3,5 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN mkdir -p config temp
+RUN mkdir -p data temp logs
 CMD ["npm", "start"]
