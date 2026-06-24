@@ -141,8 +141,8 @@ export async function streamModelResponse({
       botMessage.edit(applyEmbedFallback(originalMessage.channel, {
         embeds: [createStatusEmbed({
           variant: 'muted',
-          title: 'Generating Response',
-          description: 'Still working on this response...',
+          title: 'Iterating...',
+          description: 'He\'s really thinking hard about this!',
         })],
       })).catch((error) => {
         logStreamError('flushBufferedTextPlaceholder', error, { messageId: botMessage.id });
@@ -250,8 +250,8 @@ export async function streamModelResponse({
               botMessage.edit(applyEmbedFallback(originalMessage.channel, {
                 embeds: [createStatusEmbed({
                   variant: 'warning',
-                  title: 'Response Overflow',
-                  description: 'This response is too long for a Discord message and will be delivered as an attached file.',
+                  title: 'Spoilage Overflow',
+                  description: 'He had so much to say that it was too much for a Discord message to handle! His response is attached as a file. (What did you ask him!?)',
                 })],
               })).catch((error) => {
                 logStreamError('overflowWarningEdit', error, { messageId: botMessage.id });
@@ -302,10 +302,10 @@ export async function streamModelResponse({
             const embed = SEND_RETRY_ERRORS_TO_DISCORD
               ? buildRetryErrorEmbed(error, { isFinal: true })
               : createStatusEmbed({
-                  variant: 'error',
-                  title: 'Bot Overloaded',
-                  description: 'The bot is currently overloaded or unavailable. Please try again shortly.',
-                });
+                variant: 'error',
+                title: 'Currently Away',
+                description: 'Gleebmind\'s busy or not at home right now. Try again later.',
+              });
 
             const errorMessage = await originalMessage.channel.send(applyEmbedFallback(originalMessage.channel, {
               content: `<@${originalMessage.author.id}>`,

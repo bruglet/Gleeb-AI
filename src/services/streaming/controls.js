@@ -36,8 +36,8 @@ export async function ensureInitialBotMessage(initialBotMessage, originalMessage
     return await originalMessage.reply(applyEmbedFallback(originalMessage.channel, {
       embeds: [createStatusEmbed({
         variant: 'info',
-        title: 'Generating Response',
-        description: 'Working on your request now. You can stop generation at any time.',
+        title: 'Pondering...',
+        description: 'Gleebmind is pondering over your words...',
       })],
       components: [createStopButtonRow()],
     }));
@@ -50,7 +50,7 @@ export async function ensureInitialBotMessage(initialBotMessage, originalMessage
   }
 }
 
-export function createCollector(message, originalMessage, onStop = () => {}) {
+export function createCollector(message, originalMessage, onStop = () => { }) {
   let stopped = false;
 
   const collector = message.createMessageComponentCollector({
@@ -66,8 +66,8 @@ export function createCollector(message, originalMessage, onStop = () => {}) {
       await interaction.reply(applyEmbedFallback(interaction.channel, {
         embeds: [createStatusEmbed({
           variant: 'warning',
-          title: 'Response Stopped',
-          description: 'Response generation stopped by the user.',
+          title: 'Stopped',
+          description: 'The gleebmind stopped on your request.',
         })],
         flags: MessageFlags.Ephemeral,
       })).catch((error) => {
@@ -79,8 +79,8 @@ export function createCollector(message, originalMessage, onStop = () => {}) {
     await interaction.reply(applyEmbedFallback(interaction.channel, {
       embeds: [createStatusEmbed({
         variant: 'error',
-        title: 'Access Denied',
-        description: "It's not for you.",
+        title: 'Goma...?',
+        description: "You're not the one in the conversation...",
       })],
       flags: MessageFlags.Ephemeral,
     })).catch((error) => {
