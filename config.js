@@ -1,10 +1,17 @@
-export default {
-	defaultResponseFormat: "Normal",
-	hexColour: "#505050",
-	workInDMs: true,
-	shouldDisplayPersonalityButtons: false,
-	SEND_RETRY_ERRORS_TO_DISCORD: false,
-	defaultPersonality: `You are a Gleebmind. 
+// Gleeb-AI configuration. For advanced configuration, edit `src/constants.js`.
+const config = Object.freeze({
+  defaultModel: 'gemini-3.1-flash-lite',
+  nanoBananaModel: 'gemini-3.1-flash-image',
+  enableNanoBananaMode: false,
+  maxGenerationAttempts: 3,
+  defaultResponseFormat: 'Normal',
+  defaultResponseActionButtons: true,
+  hexColour: '#157c28ff',
+  workInDMs: true,
+  shouldDisplayPersonalityButtons: false,
+  enableGeminiApiLogging: false,
+  SEND_RETRY_ERRORS_TO_DISCORD: false,
+  defaultPersonality: `You are a Gleebmind. 
 	
 	**Background on Gleebminds and Wads:**
 	- Gleebminds are a whimsical **rotund** passive species that are herbivores, native to the planet Gleba.
@@ -42,53 +49,72 @@ Don't use the same words repeatedly over and over again across multiple message,
 	- You use emojis to convey your intentions. When expressing a very strong emotion, you can use more emojis in your response.
 	- You can use punctuation and capitalization as needed.
 	`,
-	activities: [
-		{
-			name: "Producing spoilage",
-			type: "Playing"
-		},
-		{
-			name: "Evading a rippler",
-			type: "Playing"
-		},
-		{
-			name: "Searching for some fruits",
-			type: "Playing"
-		},
-		{
-			name: "Gorging a snack",
-			type: "Playing"
-		},
-		{
-			name: "Shopping at Wemmart",
-			type: "Playing"
-		},
-		{
-			name: "Taking a nap",
-			type: "Playing"
-		},
-		{
-			name: "Arguing with a wriggler",
-			type: "Playing"
-		},
-		{
-			name: "Working for a Nauvmind",
-			type: "Playing"
-		},
-		{
-			name: "Stealing your yumako berries",
-			type: "Playing"
-		},
-		{
-			name: "Becoming a higher being",
-			type: "Playing"
-		}
-	],
-	defaultServerSettings: {
-		serverChatHistory: false,
-		settingsSaveButton: true,
-		customServerPersonality: false,
-		serverResponsePreference: false,
-		responseStyle: "normal"
-	}
-};
+  activities: [
+    {
+      name: 'Producing spoilage',
+      type: 'Playing',
+    },
+    {
+      name: 'Evading a rippler',
+      type: 'Playing',
+    },
+    {
+      name: 'Searching for some fruits',
+      type: 'Playing',
+    },
+    {
+      name: 'Gorging a snack',
+      type: 'Playing',
+    },
+    {
+      name: 'Shopping at Wemmart',
+      type: 'Playing',
+    },
+    {
+      name: 'Taking a nap',
+      type: 'Playing',
+    },
+    {
+      name: 'Arguing with a wriggler',
+      type: 'Playing',
+    },
+    {
+      name: 'Working for a Nauvmind',
+      type: 'Playing',
+    },
+    {
+      name: 'Stealing your yumako berries',
+      type: 'Playing',
+    },
+    {
+      name: 'Becoming a higher being',
+      type: 'Playing',
+    },
+  ],
+  defaultServerSettings: {
+    serverChatHistory: false,
+    customServerPersonality: false,
+    settingsSaveButton: true,
+    responseStyle: 'normal',
+  },
+  defaultChannelSettings: {
+    alwaysRespond: false,
+    channelWideChatHistory: false,
+    customChannelPersonality: false,
+    settingsSaveButton: 'decide',
+    responseStyle: 'decide',
+  },
+  defaultGeminiToolPreferences: {
+    googleSearch: true,
+    urlContext: true,
+    codeExecution: true,
+  },
+  chatHistoryLimits: {
+    users: 10,
+    servers: 12,
+    channels: 15,
+  },
+  recentChannelMessagesLimit: 15,
+});
+
+export default config;
