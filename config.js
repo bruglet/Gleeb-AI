@@ -6,7 +6,7 @@ const config = Object.freeze({
   maxGenerationAttempts: 3,
   defaultResponseFormat: 'Normal',
   defaultResponseActionButtons: true,
-  hexColour: '#157c28ff',
+  hexColour: '#157c28',
   workInDMs: true,
   shouldDisplayPersonalityButtons: false,
   enableGeminiApiLogging: false,
