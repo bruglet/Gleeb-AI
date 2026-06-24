@@ -35,7 +35,7 @@ Now with containerization!
 - Discord bot token ([create here](https://discord.com/developers/applications))
 - Google Gemini API key ([get one here](https://aistudio.google.com/app/apikey))
 
-### Setup
+### Server Setup
 
 1. **Set up your container runtime:**
     - Download and move `gleebai.container` to ~/.config/containers/systemd/ (Podman & Quadlet)
@@ -55,7 +55,7 @@ Now with containerization!
 
 *Note: You can also run this with not as a container via Node or by deploying to Vercel.*
 
-## Discord Bot Setup Checklist
+### Discord Setup
 
 Enable these intents in the Discord Developer Portal:
 
@@ -71,6 +71,8 @@ Recommended bot permissions:
 - Attach Files
 - Use Slash Commands
 - Manage Messages
+
+---
 
 ## Commands
 
@@ -93,40 +95,13 @@ Slash commands are checked on startup and auto-synced when changes are detected.
 - **Server-wide history**: one shared memory for the whole server.
 - If shared history is enabled (channel/server), it overrides personal session history in that scope.
 
-## Screenshots
-
-### Settings UI
-
-![Control Center](Screenshots/settings/settings-control-center.png)
-![Session Manager](Screenshots/settings/settings-session-manager.png)
-![Server and Channel Settings](Screenshots/settings/settings-server-and-channel-panels.png)
-![Custom Personality Modal](Screenshots/settings/settings-custom-personality-modal.png)
-
-### Chat and Responses
-
-![Basic Mention Reply](Screenshots/chat/chat-basic-mention-reply.png)
-![Custom Personality Reply](Screenshots/chat/chat-custom-personality-reply.png)
-
-### Tooling and Grounded Responses
-
-![Code Execution Prompt and Output Code](Screenshots/tools/tools-code-execution-prompt-and-code.png)
-![Code Execution Generated Files](Screenshots/tools/tools-code-execution-generated-files.png)
-![Google Search Grounding Part 1](Screenshots/chat/chat-google-search-grounding-part-1.png)
-![Google Search Grounding Part 2](Screenshots/chat/chat-google-search-grounding-part-2.png)
-
-### Downloads and Sharing
-
-![Content Sent Confirmation](Screenshots/downloads/downloads-content-sent-confirmation.png)
-![Message Content Download Link](Screenshots/downloads/downloads-message-content-link.png)
-![Session Conversation Download Link](Screenshots/downloads/downloads-session-conversation-link.png)
-
 ## Configuration
 
 Core defaults live in `config.js`:
 
-- Default Model: `gemini-flash-lite-latest`
+- Default Model: `gemini-3.1-flash-lite`
 - Nano Banana Model: `gemini-3.1-flash-image`
-- Enable Nano Banana Mode: `true`
+- Enable Nano Banana Mode: `false`
 - Max generation attempts: `3`
 - Default response mode: `Normal`
 - Tool defaults: Google Search = on, URL Context = on, Code Execution = on
@@ -145,12 +120,14 @@ src/
 
 Runtime data is stored in `data/` and temporary files in `temp/`.
 
+---
+
 ## Notes
 
 - Keep `.env` private and never commit secrets.
 - Conversation/state is persisted locally as JSON files.
 - Fork and modify `config.js` to change default personalities, activities, colors, and feature toggles. Make sure to pull new container once built by GitHub Actions.
-- Persistent data (chat history, settings, blacklists, etc.) is stored in the `gleebai-config` volume.
+- Persistent data (chat history, settings, blacklists, etc.) is stored in the `gleebai-data` volume.
 - **Do not commit your `.env` or Quadlet file with secrets.**
 
 ## License
