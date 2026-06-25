@@ -74,7 +74,7 @@ async function sendUnsupportedAttachmentsWarning(unsupportedAttachments, message
       variant: 'warning',
       title: 'Unsupported Attachments Skipped',
       description: [
-        'These files could not be processed and were skipped:',
+        'These files could not be sent and were skipped:',
         '',
         formatUnsupportedAttachmentsList(unsupportedAttachments),
       ].join('\n'),
@@ -169,7 +169,7 @@ function createProcessingEmbed(textStatus = '[🔁]', mediaStatus = '[🔁]', fi
     variant: 'info',
     title: 'Processing',
     description: [
-      'Working on your request.',
+      'Gleebmind\'s looking over it...',
       '',
       `- ${textStatus} Text attachment check`,
       `- ${mediaStatus} Media attachment check`,
@@ -182,7 +182,7 @@ function createEmptyMessageEmbed() {
   return createStatusEmbed({
     variant: 'warning',
     title: 'Empty Message',
-    description: "It looks like you didn't say anything. What would you like to talk about?",
+    description: "Gos...? Goma...?",
   });
 }
 
@@ -192,10 +192,10 @@ function createEmptyMessageEmbed() {
 
 /** Sends periodic typing indicators until the returned cleanup function is called. */
 function createTypingHeartbeat(channel) {
-  channel.sendTyping().catch(() => {});
+  channel.sendTyping().catch(() => { });
 
   const intervalId = setInterval(() => {
-    channel.sendTyping().catch(() => {});
+    channel.sendTyping().catch(() => { });
   }, MESSAGE_TYPING_INTERVAL_MS);
 
   const timeoutId = setTimeout(() => {
