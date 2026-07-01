@@ -68,7 +68,7 @@ export const GENERATION_CONFIG = Object.freeze({
   temperature: 1.0,
   topP: 0.95,
   thinkingConfig: {
-    thinkingLevel: 'medium',
+    thinkingLevel: 'high',
   },
 });
 
