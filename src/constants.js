@@ -65,10 +65,10 @@ export const SAFETY_SETTINGS = [
 ];
 
 export const GENERATION_CONFIG = Object.freeze({
-  temperature: 2.0,
-  topP: 0.60,
+  temperature: 1.0,
+  topP: 0.95,
   thinkingConfig: {
-    thinkingLevel: 'low',
+    thinkingLevel: 'medium',
   },
 });
 
