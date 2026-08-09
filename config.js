@@ -1,6 +1,6 @@
 // Gleeb-AI configuration. For advanced configuration, edit `src/constants.js`.
 const config = Object.freeze({
-  defaultModel: 'gemini-3.1-flash-lite',
+  defaultModel: 'gemini-3.5-flash-lite',
   nanoBananaModel: 'gemini-3.1-flash-lite-image',
   enableNanoBananaMode: true,
   maxGenerationAttempts: 3,
